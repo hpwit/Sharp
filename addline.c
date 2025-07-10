@@ -5,7 +5,7 @@ char myString[250];
  
 int main()
 {
-fptr = fopen("code8.asm", "r");
+fptr = fopen("receive.asm", "r");
 out = fopen("coden_line.asm", "w");
 int start_line=10;
 while(fgets(myString, 250, fptr)) {
@@ -20,6 +20,7 @@ while(fgets(myString, 250, fptr)) {
      fprintf(out,"%d %s", start_line,myString);
     start_line+=10;
   };
+  fprintf(out,"%c",0x1a);
 fclose(fptr);
 fclose(out);
 printf("Done\n");
