@@ -71,12 +71,22 @@ On your sharp in basic mode
  * MON
  * G2000
 
-![Sync](/images/IMG_7492.heic)
+![Sync](images/IMG_7492.heic)
+
+
 On your computer
 `python sendbin.py thebinary usb_port  address`
+
+
 like 
+
+
 `python sendtext.py tunnel.bin /dev/cu.usbserial-210 0x100`
+
+
 ![Sync](/images/IMG_7493.heic)
+
+
 You can in that case  execute to program by doing `G100`
 
 PS: you can stop the program by clicking the 'ON' key
