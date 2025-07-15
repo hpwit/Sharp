@@ -16,7 +16,7 @@ main_loop:
 
 ;add 40h
 ;out (40h),a
-
+call display
 ld a,(speed)
 ld c,a
 ld a ,(count)
@@ -24,7 +24,7 @@ and c
 cp c
 jp nz,nkey2
 call puwall
-call display
+;call display
 ld a,(scpos)
 cp 143
 jp nz,smain
@@ -385,11 +385,8 @@ JP CLS0
 
 create_wall:
 ld hl,wall
-ld c,1
-ld (hl),c
-inc hl
-ld c,00h
-ld b,11
+ld c,0ffh
+ld b,12
 fill:
 ld (hl),C
 inc hl
@@ -420,11 +417,8 @@ jp z, end_create
 ld b,a
 ;inc b
 ;ld ix,wall
-;scf
-xor a
-scf
 locreate2:
-;scf
+scf
 rl (ix+0)
 rl (ix+1)
 rl (ix+2)
@@ -469,8 +463,8 @@ dec a
 ld b,a
 ld HL,wall_pos
 add A,(HL)
-cp 0
-jp z,inf
+bit 7,a
+jp nz,inf
 cp c
 jp c, store
 ld a,C
@@ -478,7 +472,7 @@ dec a
 ld b,0
 jp store
 inf:
-ld a,1
+ld a,0
 ld b,0
 store:
 ld (HL),a
@@ -493,7 +487,7 @@ init:
 ;cls
 ;ld a,138
 ;ld (wall_pos),a
-ld a,0ffh
+ld a,0h
 ld (speed),a
 ld a,start_wall
 ld (wall_height),a
@@ -514,7 +508,7 @@ ld (toup),a
 ld a,0
 ld (activ),a
 ld (count),a
-ld a,00fh
+ld a,0ffh
 ld (detec),a
 ret
 
@@ -584,7 +578,7 @@ ret
 onmask:
 bit 7,A
 jp nz,negatif
-;scf
+scf
 rl (ix+0)
 rl (ix+1)
 rl (ix+2)
@@ -599,7 +593,7 @@ rl (ix+10)
 rl (ix+11)
 ret
 negatif:
-;scf
+scf
 rr (ix+11)
 rr (ix+10)
 rr (ix+9)
@@ -663,11 +657,23 @@ ld a,c
 and 7
 or 0b0h
 out (40h),A
+ld a,(count)
+and 1
+jp z,allff
 ld a,c
 ld b,144
 ld c,41h
 otir
 ld c,a
+jp passdis
+allff:
+ld a,0ffh
+ld b,144
+sdf2:
+out (41h),A
+djnz sdf2
+
+passdis:
 
 push de
 push hl
@@ -704,6 +710,10 @@ out (41h),a
 inc ix
 inc hl
 djnz diss
+waite:
+in a,(40h)
+bit 7,A
+jp nz,waite
 pop bc
 pop hl
 pop de

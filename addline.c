@@ -5,7 +5,7 @@ char myString[250];
  
 int main()
 {
-fptr = fopen("receive.asm", "r");
+fptr = fopen("laod2000.asm", "r");
 out = fopen("coden_line.asm", "w");
 int start_line=10;
 while(fgets(myString, 250, fptr)) {

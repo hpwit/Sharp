@@ -385,11 +385,8 @@ JP CLS0
 
 create_wall:
 ld hl,wall
-ld c,1
-ld (hl),c
-inc hl
-ld c,00h
-ld b,11
+ld c,0ffh
+ld b,12
 fill:
 ld (hl),C
 inc hl
@@ -420,11 +417,8 @@ jp z, end_create
 ld b,a
 ;inc b
 ;ld ix,wall
-;scf
-xor a
-scf
 locreate2:
-;scf
+scf
 rl (ix+0)
 rl (ix+1)
 rl (ix+2)
@@ -469,8 +463,8 @@ dec a
 ld b,a
 ld HL,wall_pos
 add A,(HL)
-cp 0
-jp z,inf
+bit 7,a
+jp nz,inf
 cp c
 jp c, store
 ld a,C
@@ -478,7 +472,7 @@ dec a
 ld b,0
 jp store
 inf:
-ld a,1
+ld a,0
 ld b,0
 store:
 ld (HL),a
@@ -514,7 +508,7 @@ ld (toup),a
 ld a,0
 ld (activ),a
 ld (count),a
-ld a,00fh
+ld a,0ffh
 ld (detec),a
 ret
 
@@ -584,7 +578,7 @@ ret
 onmask:
 bit 7,A
 jp nz,negatif
-;scf
+scf
 rl (ix+0)
 rl (ix+1)
 rl (ix+2)
@@ -599,7 +593,7 @@ rl (ix+10)
 rl (ix+11)
 ret
 negatif:
-;scf
+scf
 rr (ix+11)
 rr (ix+10)
 rr (ix+9)
@@ -694,7 +688,7 @@ jp z,sdf
 ld d, A
 ld a,(detec)
 and d
-ld a,0
+;ld a,0
 ld (toup),a
 sdf:
 ld a,(ix+0)
