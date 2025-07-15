@@ -86,7 +86,7 @@ On your computer
 like 
 
 
-`python sendtext.py tunnel.bin /dev/cu.usbserial-210 0x100`
+`python sendin.py tunnel.bin /dev/cu.usbserial-210 0x100`
 
 
 ![Sync](images/IMG_7493.heic)
