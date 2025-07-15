@@ -84,7 +84,7 @@ like
 `python sendtext.py tunnel.bin /dev/cu.usbserial-210 0x100`
 
 
-![Sync](/images/IMG_7493.heic)
+![Sync](images/IMG_7493.heic)
 
 
 You can in that case  execute to program by doing `G100`
