@@ -53,17 +53,19 @@ PS: to validate your choice do not forget to type 'ENTER'
 
 # Send a text file to the sharp
 
-Go to 'TEXT' -> 'SIO' -> 'Load'
+Go to 'TEXT' -> 'SIO' -> 'Load' 
+
 On yout computer launch
+
 `python sendtext.py name_of_the_file usb_port`
+
 Once the file has been sent the Sharp will go back to the SIO menu.
 
 ## Send the program to allow binary uplaods
 
 `python sendtext.py sendtosharp.asm usb_port`
 
-then in basic Mode
-type: 
+then in basic mode type: 
 * MON
 * USER 2FFF
 
@@ -91,10 +93,12 @@ like
 
 ![Sync](images/IMG_7493.heic)
 
+PS: you can stop the binary downloadind program by clicking the 'ON' key on the SHARP PC 850 VS
+
 
 You can in that case  execute to program by doing `G100`
 
-PS: you can stop the program by clicking the 'ON' key
+
 
 let me know
 
