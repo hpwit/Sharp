@@ -21,6 +21,11 @@ Here are the connections I have chosen due to the disposition of the pin in my e
 
 If you want to power the esp32 with the Sharp connect the esp32 5V to the pin 2 of the SHARP PC 850VS.
 
+You can use simple Dupont connectors
+![Sync](images/IMG_7494.HEIC)
+
+![Sync](images/IMG_7495.HEIC)
+
 # Software part
 
 ## ESP32
