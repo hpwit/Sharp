@@ -5,6 +5,9 @@ I have chosen the esp32 as it is my favorite mcu but no hard feeling if it's not
 
 THis is based on the work of [Chris Herman](https://github.com/chrisherman/PC-G850V-InvertedSerial)
 
+This will allow to send any text file (basic/C/assembly programs ) to your SHARP as well as being able to send binary files to it.
+
+You can also send your favorite SHARP program to your computer
 # Hardware part
 
 Here are the connections I have chosen due to the disposition of the pin in my esp32 dev kit rev4. But chose the pins you prefer
@@ -97,6 +100,13 @@ PS: you can stop the binary downloadind program by clicking the 'ON' key on the 
 
 
 You can in that case  execute to program by doing `G100`
+
+
+# Send a program from the SHARP to your computer
+
+On your computer type `python recieve.py usb_port output_filename`
+
+On your SHARP for to 'TEXT'->'SIO'->'Save'
 
 
 

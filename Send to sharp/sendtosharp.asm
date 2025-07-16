@@ -5,7 +5,18 @@
 15 ld hl, intro
 16 call 0bff1h
 20  call 0bce8h
-30  call 0bce5h
+21 ld a,48
+22 ld hl,size3
+23 ld (hl),A
+24 inc hl
+25 ld (hl),A
+26 inc hl
+27 ld (hl),A
+28 inc hl
+29 ld (hl),A
+30 inc hl
+31 ld (hl),A
+32  call 0bce5h
 40  ld b,a
 50  call 0bce5h
 60  ld c,a
@@ -213,5 +224,4 @@
 1330size: db 48,48,48,48,48
 1340text3: db 'a','t',':'
 1350size2: db 48,48,48,48,'h',' ','D','o','n','e'
-
 
